@@ -5,15 +5,15 @@ This Longstaff-Schwartz algorithm is also known as the Least Squares Monte-Carlo
 
 By emulating this paper's numerical example in Jupiter Notebook/Python, I hope I will learn interesting world of option for both European & American style from the perspective of programming.<br>
 
-The example used in the paper: <br>
-Consider an American put option on a share of non-dividend-paying stock. The put option is exercisable at a strike price of $1.10 at times 1, 2, and 3, where time three is the final expiration
+The paper used the following put option: <br>
+Consider an American put option on a share of non-dividend-paying stock. The put option is exercisable at a strike price of $1.10 at times 1, 2, and 3, where time 3 (t3) is the final expiration
 date of the option. The riskless rate is 6%. The current stock price is $1.00. <br>
 I will also use/copy the explanation from the paper to describe the steps in the Python program.<br>
 
 Important part of the paper:<br>
 * The holder of an American option **compares** the payoff from immediate exercise with the expected payoff from continuation, and then exercises if the immediate payoff is higher.
 * The optimal exercise strategy is determined by the **conditional expectation** of the payoff from continuing to keep the option alive.
-* This conditional expectation can be estimated by using **least squares** or **regress**.
+* This conditional expectation can be estimated by using **least squares** or **regression** method.
 * By estimating the conditional expectation function for each exercise date, we obtain a complete **specification** of the optimal exercise strategy along each path.
 * There are 8 price paths assumed for the simulation.
 * With this specification, American options can then be valued accurately by simulation.
