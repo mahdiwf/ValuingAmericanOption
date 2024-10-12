@@ -1,14 +1,14 @@
 # ValuingAmericanOption
-In this case study, I will use Jupyter Notebook to implement the numerical simulation mentioned on the "section 1 Numerical Example" from Longstaff-Schwartz paper.
+In this case study, I will use Jupyter Notebook to implement the numerical simulation/calculation mentioned on the "section 1 Numerical Example" from Longstaff-Schwartz paper.
 Link to the paper is https://people.math.ethz.ch/~hjfurrer/teaching/LongstaffSchwartzAmericanOptionsLeastSquareMonteCarlo.pdf.<br>
 This Longstaff-Schwartz algorithm is also known as the Least Squares Monte-Carlo (LSM) algorithm.<br>
 
 By emulating this paper's numerical example in Jupiter Notebook/Python, I hope I will learn interesting world of option for both European & American style from the perspective of programming.<br>
 
-The paper used the following put option: <br>
+The paper used the following put option as the basis for the simulation: <br>
 Consider an American put option on a share of non-dividend-paying stock. The put option is exercisable at a strike price of $1.10 at times 1, 2, and 3, where time 3 (t3) is the final expiration
 date of the option. The riskless rate is 6%. The current stock price is $1.00. <br>
-I will also use/copy the explanation from the paper to describe the steps in the Python program.<br>
+For better clarity, I will also use/copy the explanation from the paper to explain the steps in the program.<br>
 
 Important part of the paper:<br>
 * The holder of an American option **compares** the payoff from immediate exercise with the expected payoff from continuation, and then exercises if the immediate payoff is higher.
@@ -36,6 +36,7 @@ Now that we have the potential paths, we need to calculate the cash flows that w
 The objective is to solve for the stopping rule that maximizes the value of the option at each point along each path. Since the algorithm is recursive, we first need to compute a number of intermediate matrices. Conditional on not exercising the option before the final expiration date at time 3, the cash flows realized by the optionholder from following the optimal strategy at time 3 are given below.<br>
 
 ![image](https://github.com/user-attachments/assets/2f194d47-6ba3-4087-92bb-5da8ac3dd9ff) <br>
+The steps below will produce the above table.
 
 ![image](https://github.com/user-attachments/assets/cf07eb35-e1c1-40b8-ae25-50dae148d914) <br>
 
@@ -88,7 +89,8 @@ With this conditional expectation function, we now compare the value of immediat
 ![image](https://github.com/user-attachments/assets/153beda9-41a1-4f5c-b1a7-56a83398562d) <br>
 
 The steps below, I will produce the table above.<br>
-![image](https://github.com/user-attachments/assets/0bdc1dda-2fb2-4277-b2c7-38d6b1617543) <br>
+![image](https://github.com/user-attachments/assets/17a24c50-8712-4ec3-9558-b69619b43e7f) <br>
+
 Note:
 1) Path #2, #3 and #5 are not in_the_money.<br>
 2) calc = Conditional expectation of holding the put calculated using LinearRegression <br>
