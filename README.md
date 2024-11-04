@@ -3,22 +3,14 @@ In this case study, I will use Jupyter Notebook to implement the numerical simul
 Link to the paper is https://people.math.ethz.ch/~hjfurrer/teaching/LongstaffSchwartzAmericanOptionsLeastSquareMonteCarlo.pdf.<br>
 This Longstaff-Schwartz algorithm is also known as the Least Squares Monte-Carlo (LSM) algorithm.<br>
 
+The *least squares method* is a form of mathematical regression analysis used to determine the line of best fit for a set of data, providing a visual demonstration of the relationship between the data points. https://www.investopedia.com/terms/l/least-squares-method.asp <br>
+
 By emulating this paper's numerical example in Jupiter Notebook/Python, I hope I will learn interesting world of option for both European & American style from the perspective of programming.<br>
 
 The paper used the following put option as the basis for the simulation: <br>
 Consider an American put option on a share of non-dividend-paying stock. The put option is exercisable at a strike price of $1.10 at times 1, 2, and 3, where time 3 (t3) is the final expiration
 date of the option. The riskless rate is 6%. The current stock price is $1.00. <br>
 For better clarity, I will also use/copy the explanation from the paper to explain the steps in the program.<br>
-
-Important part of the paper:<br>
-* The holder of an American option **compares** the payoff from immediate exercise with the expected payoff from continuation, and then exercises if the immediate payoff is higher.
-* The optimal exercise strategy is determined by the **conditional expectation** of the payoff from continuing to keep the option alive.
-* This conditional expectation can be estimated by using **least squares** or **regression** method.
-* By estimating the conditional expectation function for each exercise date, we obtain a complete **specification** of the optimal exercise strategy along each path.
-* There are 8 price paths assumed for the simulation.
-* With this specification, American options can then be valued accurately by simulation.
-  
-The *least squares method* is a form of mathematical regression analysis used to determine the line of best fit for a set of data, providing a visual demonstration of the relationship between the data points. https://www.investopedia.com/terms/l/least-squares-method.asp <br>
 
 **Price Path** <br>
 The paper assumes that the stock price follow the following 8 paths. <br>
